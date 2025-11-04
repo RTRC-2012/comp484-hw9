@@ -149,17 +149,29 @@ else {
 
 // Exercise 20: Simulating DOM Manipulation Timing Failure (Conceptual)
 /*
-If you place the DOM manipulation code in the <head> of an HTML file
-without a 'defer' or 'async' attribute on the <script> tag, the browser
-may attempt to execute the script before the <body> is fully parsed.
-This may make the document.body null, and trying to set innerHTML or appendChild
-will cause an error like "Cannot set property 'innerHTML' of null".
-Always place scripts that manipulate the DOM at the end of the <body>
-or use 'defer'/'async' so the script runs after the DOM is ready.
+Three common issues that can occur with DOM manipulation timing:
+1. Script in <head>: If you place this code in the <head> without 'defer' or 'async',
+   it will run before the DOM is ready, causing "Cannot read property 'appendChild' 
+   of null" because document.body doesn't exist yet.
+2. No DOM Ready check: Even with script at bottom of <body>, it's best practice
+   to verify the DOM is ready before manipulating it.
+3. Dynamic content: Some frameworks might modify the DOM asynchronously,
+   so waiting for DOMContentLoaded isn't always enough.
+
+Solutions:
+1. Use 'defer' attribute: <script defer src="script.js"></script>
+2. Place script at end of <body>
+3. Use event listeners for DOM ready state
 */
-var h1Element = document.createElement("h1");
-h1Element.textContent = "Interactive Layer Loaded";
-document.body.appendChild(h1Element);
+document.addEventListener('DOMContentLoaded', function() {
+    var h1Element = document.createElement("h1");
+    h1Element.textContent = "Interactive Layer Loaded";
+    if (document.body) {
+        document.body.appendChild(h1Element);
+    } else {
+        console.error("Document body not found");
+    }
+});
 
 
 
