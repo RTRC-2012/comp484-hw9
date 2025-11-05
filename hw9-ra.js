@@ -149,19 +149,20 @@ else {
 
 // Exercise 20: Simulating DOM Manipulation Timing Failure (Conceptual)
 /*
-Three common issues that can occur with DOM manipulation timing:
-1. Script in <head>: If you place this code in the <head> without 'defer' or 'async',
-   it will run before the DOM is ready, causing "Cannot read property 'appendChild' 
-   of null" because document.body doesn't exist yet.
-2. No DOM Ready check: Even with script at bottom of <body>, it's best practice
-   to verify the DOM is ready before manipulating it.
-3. Dynamic content: Some frameworks might modify the DOM asynchronously,
-   so waiting for DOMContentLoaded isn't always enough.
+If this script is placed in the HTML <head> without 'defer' or 'async', it may run
+before the document body exists. In that case attempts to write into the DOM
+can throw an error such as: "Cannot set property \"innerHTML\" of null" (or
+"Cannot read property 'appendChild' of null") because document.body is null.
 
-Solutions:
-1. Use 'defer' attribute: <script defer src="script.js"></script>
-2. Place script at end of <body>
-3. Use event listeners for DOM ready state
+Common causes:
+1. Script in <head> without 'defer' or 'async' (runs immediately during parsing).
+2. No DOM ready check when manipulating elements that may not yet exist.
+3. Asynchronous DOM changes from frameworks that run after DOMContentLoaded.
+
+Simple remedies:
+- Use the 'defer' attribute on the script tag: <script defer src="script.js"></script>
+- Place the script just before </body> so elements already exist.
+- Wrap DOM mutations in a DOMContentLoaded or other readiness check.
 */
 document.addEventListener('DOMContentLoaded', function() {
     var h1Element = document.createElement("h1");
@@ -170,8 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(h1Element);
     } else {
         console.error("Document body not found");
-    }
-});
+    }});
 
 
 
