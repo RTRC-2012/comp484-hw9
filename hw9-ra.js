@@ -1,9 +1,11 @@
 // Exercise 1: Complex Arithmetic and Standard Rules
+console.log("Exercise 1");
 var finalResult = 3 + 5 * (10 / 2) - (8 - 4);
 // 3+5*(10/2)-(8-4) => 3+5*5-4 => 3+25-4 = 24
 console.log(finalResult);
 
 // Exercise 2: Case Sensitivity Test
+console.log("Exercise 2");
 var projectIdentifier = "COMP484";
 ProjectIdentifier = "JS_Advanced";
 /*This line will fail because JavaScript is case-sensitive*/
@@ -11,15 +13,18 @@ projectIdentifier = "JS_Advanced";
 console.log(projectIdentifier);
 
 // Exercise 3: String Quoting Challenge
+console.log("Exercise 3");
 var courseDescription = "The course is \"interactive\" and involves 'scripting' logic.";
 console.log(courseDescription);
 
 // Exercise 4: Escaping and Console Output
+console.log("Exercise 4");
 var errorMessage = 'An internal server error occurred: \"Access Denied\"';
 // The double quotes around Access Denied are escaped above using a backslash as required.
 console.log(errorMessage);
 
 // Exercise 5: Type Coercion with Non-Plus Operators
+console.log("Exercise 5");
 var valueA = 10;
 var valueB = "4";
 var resultSubtraction = valueA - valueB;
@@ -29,6 +34,7 @@ console.log("valueA * valueB = " + resultMultiplication);
 // B is coerced to be a nomral integer
 
 // Exercise 6: Understanding `null` and `undefined` Types
+console.log("Exercise 6");
 var unassignedVar; // Declare without assigning = "undefined"
 var explicitNull = null;
 console.log("typeof unassignedVar = " + typeof unassignedVar); // expected "undefined"
@@ -40,6 +46,7 @@ console.log("typeof explicitNull = " + typeof explicitNull);     // historically
 	so `typeof null` still returns "object" even though `null` is its own primitive value. */
 
 // Ecercise 7: Boolean Assignment and Type Identification
+console.log("Exercise 7");
 var isBlocking = true;
 console.log(typeof isBlocking); // should log "boolean"
 isBlocking = "true"; //reassign to string
@@ -54,12 +61,14 @@ console.log(typeof isBlocking); // should log "string"
   //    var total-cost = 20;
 
 // Exercise 9: Chained Shorthand Arithmetic
+console.log("Exercise 9");
 var counterValue = 50;
 counterValue /= 5; // counterValue = counterValue / 5 => 10
 counterValue -= 3; // counterValue = counterValue - 3 => 7
 console.log("counterValue = " + counterValue);
 
 // Exercise 10: Prefix vs. Postfix Unary Operators
+console.log("Exercise 10");
 var x = 10;
 var y_post = x++;
 console.log("y_post = " + y_post); // y_post gets the value before increment (10)
@@ -72,6 +81,7 @@ console.log("x after z_pre = " + x); // x is now 11
     Prefix (++x): The value is incremented first, then assigned. */
 
 // Exercise 11: Loose Equality and Coercion
+console.log("Exercise 11");
 var testNumber = 0;
 var testBoolean = false;
 if (testNumber == testBoolean) {
@@ -81,6 +91,7 @@ if (testNumber == testBoolean) {
 	is converted to the number 0, so 0 == 0 is true. */
 
 // Exercise 12: Strict Inequality Test
+console.log("Exercise 12");
   var versionA = 10.0; // number
   var versionB = "10.0"; // string
   if (versionA !== versionB) {
@@ -89,6 +100,7 @@ if (testNumber == testBoolean) {
     console.log("versionA and versionB are strictly equal");}
 
 // Exercise 13: Logical OR and AND Combination
+console.log("Exercise 13");
 var isLoggedIn = true;
 var isSubscriber = true;
 var isTrialExpired = false;
@@ -98,6 +110,7 @@ else {
     console.log("Access denied");}
 
 // Exercise 14: Simulating XOR using Nested Conditionals
+console.log("Exercise 14");
 var conditionA = true;
 var conditionB = false;
 if ((conditionA && !conditionB) || (!conditionA && conditionB)) {
@@ -105,6 +118,7 @@ if ((conditionA && !conditionB) || (!conditionA && conditionB)) {
 else {console.log("XOR Fail");}
 
 // Exercise 15: Converting IF/ELSE to Ternary Operator
+console.log("Exercise 15");
 var scriptLoadType = "deferred";
 var loadStatus;
 if (scriptLoadType === "deferred") {
@@ -124,9 +138,11 @@ function calculateRenderTime() {
 }
 
 // Exercise 17: Date Object Formatting Challenge (MM/DD/YYYY)
+console.log("Exercise 17");
 console.log("Right now it is " + Date());
 
 // Exercise 18: Mixed Type Arithmetic Explanation
+console.log("Exercise 18");
 var val1 = 20;
 var val2 = "5";
 var sumResult = val1 + val2;
@@ -140,6 +156,7 @@ console.log("diffResult = " + diffResult);
    to a number, so 20 - "5" becomes 20 - 5 resulting in 15. */
 
 // Exercise 19: Conditional based on Type Check
+console.log("Exercise 19");
 var dataInput = 484;
 if (typeof dataInput === "number") {
     console.log("Input is numeric."); } 
@@ -148,6 +165,7 @@ else {
     console.log("New type of dataInput: " + typeof dataInput);}
 
 // Exercise 20: Simulating DOM Manipulation Timing Failure (Conceptual)
+console.log("Exercise 20");
 /*
 If this script is placed in the HTML <head> without 'defer' or 'async', it may run
 before the document body exists. In that case attempts to write into the DOM
